@@ -14,7 +14,7 @@ const Router = ()=>{
                 <Route exact path='/' component={Home}/>
                 <Route path='/login' component={Login}/>
                 <Route path='/news' component={News}/>
-                <Route path='weakpass' component={WeakPass}/>
+                <Route path='/weakpass' component={WeakPass}/>
             </ThemeProvider>
         </div>
     )
