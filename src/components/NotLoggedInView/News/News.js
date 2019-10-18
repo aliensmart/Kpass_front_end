@@ -1,6 +1,6 @@
 import React from 'react';
 
-const News = ()=>{
+const Newsp = ()=>{
     return(
         <div>
             <p>This is the News page</p>
@@ -9,4 +9,4 @@ const News = ()=>{
 }
 
 
-export default News
+export default Newsp
