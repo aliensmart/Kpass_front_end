@@ -1,12 +1,14 @@
 import React from 'react';
-import NotLoged from './components/NotLoggedInView/Login'
+import Router from './components/NotLoggedInView/Router'
+import Header from './components/NotLoggedInView/Header/Header'
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <NotLoged/>
+      <Header/>
+      <Router/>
     </div>
   );
 }
