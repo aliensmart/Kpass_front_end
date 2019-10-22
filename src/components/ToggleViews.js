@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Logged from '../../LoggedInView/Logged'
+import Login from './NotLoggedInView/Login/Login';
+import Logged from './LoggedInView/Logged'
 
 
-
-const Login = ()=>{
-    
+const ToggleViews = ()=>{
     const useStateWithSessionStorage = sessionStorageKey=>{
         const [value, setValue] = React.useState(
             sessionStorage.getItem(sessionStorageKey)||'');
@@ -52,14 +51,21 @@ const Login = ()=>{
 
 
     let contents = null;
-    if(!value){
+    if(value){
         contents = (
             <div>
-                <form>
-                    <input type="text" onChange={e=>setInputUser(e.target.value)}/>
-                    <input type="password" onChange={e=>setInputPass(e.target.value)}/>
-                    <input type="button" onClick={e=>{getToken(); e.preventDefault()}} value="login"/>
-                </form>
+                <Logged/>
+                <br></br>
+                <button onClick={e=>{setValue(null)}}>Log Out</button>
+            </div>
+        )
+    }else{
+        contents = (
+            <div>
+                <Login
+            userChange = {e=>setInputUser(e.target.value)}
+            passChange = {e=>setInputPass(e.target.value)}
+            click = {e=>{getToken(); e.preventDefault()}}/>
                 {isError && <h3>processing error.</h3>}
                 {isAuthError && <h3>Please review your information.</h3>}
                 
@@ -76,4 +82,4 @@ const Login = ()=>{
 }
 
 
-export default Login
+export default ToggleViews
