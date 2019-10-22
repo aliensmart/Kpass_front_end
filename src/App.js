@@ -8,20 +8,7 @@ import './App.css';
 function App() {
   const token = sessionStorage.getItem("token")
   let contents = null;
-  if (token){
-    contents = (
-      <div>
-        <Logged/>
-        
-      </div>
-    )
-  }else{
-    contents = (
-      <div>
-        <NotLogged/>
-      </div>
-    )
-  }
+  token ? (contents=(<div><Logged/></div>)):(contents=(<div><NotLogged/></div>))
 
   return (
     <div className="App">
