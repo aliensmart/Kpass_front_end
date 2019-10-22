@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom'
+
 
 const Sidebare = ()=>{
     return(
         <div>
-            <h1>This is the Sidebare component</h1>
+            <Link type="nav" to='/'>Accounts & Passwords</Link>
+            <Link type="nav" to='/banks'>Bank Accounts</Link>
+            <Link type="nav" to='/family'>Family</Link>
+            <Link type="nav" to='/emergency'>Emergency</Link>
+            <Link type="nav" to='/setting'>Setting</Link>
+            <Link type="nav" to='/helpCenter'>Help Center</Link>
         </div>
     )
 }

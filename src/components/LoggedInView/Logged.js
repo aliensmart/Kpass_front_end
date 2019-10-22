@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 
 
 const Logged = () => {
@@ -6,6 +7,7 @@ const Logged = () => {
     return (
         <div>
             <p>Welcome, Your token: {token} </p>
+            
         </div>
     )
 }
