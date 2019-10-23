@@ -22,7 +22,10 @@ const Password = (props)=>{
                         site_name: inputSiteName
                     }
                     const res = await axios.post(`http://localhost:5000/api/${token}/passwords_post`, data)
-
+                    // const newData = [...props.oldData]
+                    // newData.push(data)
+                    // props.update(newData)
+                    
                 } catch(error){
                     console.log(error)
                 } 

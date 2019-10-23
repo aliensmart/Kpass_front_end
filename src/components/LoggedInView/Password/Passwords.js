@@ -11,13 +11,14 @@ const Passwords = ()=>{
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([])
     const [showAdd, setShowAdd] = useState(false)
+    
 
     useEffect(()=>{
         const fetchData = async ()=>{
             setIsLoading(true);
             try{
                 const res = await axios(`http://localhost:5000/api/${token}/passwords`)
-                console.log(res.data.passwords);
+                // console.log(res.data.passwords);
                 setData(res.data.passwords);
             }catch (error){
                 console.log(error)
@@ -35,19 +36,13 @@ const Passwords = ()=>{
     const toggle = ()=>{
         setShowAdd(!showAdd)
     }
-    let content = null;
-    if(!showAdd){
-        content=(
-            <div>
-                <Add/>
-            </div>
-        )
-    }
+    
     
 
     return(
         <div>
-            {content}
+            {showAdd && <Add update={setData} oldData={data}/>}
+            {/* {content} */}
             <table>
                 <thead>
                     <th style={th}>Id</th>
@@ -72,8 +67,8 @@ const Passwords = ()=>{
                 </tbody>
             </table>
 
-            <div onClick={e=>toggle()}>
-                <span >+</span>
+            <div  style={{marginTop:"30px"}}>
+                <span onClick={e=>toggle()} style={{cursor:"pointer", background:"red", padding:'30px', borderRadius:"50%", marginTop:"20px"}} >+</span>
             </div>
             {/* {passwords} */}
             
