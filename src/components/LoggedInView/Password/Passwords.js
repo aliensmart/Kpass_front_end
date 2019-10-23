@@ -56,8 +56,20 @@ const Passwords = ()=>{
                     <th style={th}>Password</th>
                     <th style={th}>Site Name</th>
                 </thead>
+                <tbody>
+                {data.map((password, index)=>{
+                    return(
+                    <tr>
+                    <td>{password.id}</td>
+                    <td>{password.username}</td>
+                    <td>{password.email}</td>
+                    <td>{password.password_hash}</td>
+                    <td>{password.site_name}</td>
+                    </tr>)
+            })}
+                </tbody>
             </table>
-            {passwords}
+            {/* {passwords} */}
             
         </div>
     )
