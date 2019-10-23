@@ -11,7 +11,7 @@ import Help from './HelpCenter/Help'
 const Router = ()=>{
     return(
         <div>
-            <Route exact path='/' component={Passwords}/>
+            <Route  path='/passwords' component={Passwords}/>
             <Route  path='/banks' component={Banks}/>
             <Route  path='/family' component={Family}/>
             <Route  path='/emergency' component={Emergency}/>

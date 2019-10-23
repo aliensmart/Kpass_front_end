@@ -58,7 +58,7 @@ const Login = ()=>{
                 <form>
                     <input type="text" onChange={e=>setInputUser(e.target.value)}/>
                     <input type="password" onChange={e=>setInputPass(e.target.value)}/>
-                    <input type="button" onClick={e=>{getToken(); e.preventDefault()}} value="login"/>
+                    <input type="button" onClick={e=>{getToken(); e.preventDefault();}} value="login"/>
                 </form>
                 {isError && <h3>processing error.</h3>}
                 {isAuthError && <h3>Please review your information.</h3>}
