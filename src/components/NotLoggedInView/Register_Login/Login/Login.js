@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Logged from '../../LoggedInView/Logged'
 
 
 
@@ -56,8 +55,8 @@ const Login = ()=>{
         contents = (
             <div>
                 <form>
-                    <input type="text" onChange={e=>setInputUser(e.target.value)}/>
-                    <input type="password" onChange={e=>setInputPass(e.target.value)}/>
+                    <input type="text" onChange={e=>setInputUser(e.target.value)} placeholder="Username"/>
+                    <input type="password" onChange={e=>setInputPass(e.target.value)} placeholder="Password"/>
                     <input type="button" onClick={e=>{getToken(); e.preventDefault();}} value="login"/>
                 </form>
                 {isError && <h3>processing error.</h3>}

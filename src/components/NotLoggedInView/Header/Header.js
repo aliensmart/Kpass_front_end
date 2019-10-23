@@ -1,5 +1,4 @@
 import React from 'react';
-import Router from '../Router';
 import {Flex, Box} from 'rebass';
 import {Link} from 'react-router-dom'
 
@@ -26,7 +25,7 @@ const Header = ()=>{
                     </Box>
 
                     <Box p={3} width={2/8} bg='secondary'>
-                        <Link type="nav" to='/login'>Login/Register</Link>
+                        <Link type="nav" to='/log'>Login/Register</Link>
                     </Box>
                 </Flex>
             </Box>

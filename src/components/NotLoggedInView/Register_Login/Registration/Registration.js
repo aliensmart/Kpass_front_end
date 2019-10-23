@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const Register = ()=>{
 
-    useStateWithSessionStorage = sessionStorageKey => {
+    const useStateWithSessionStorage = sessionStorageKey => {
         const [value, setValue] = React.useState(
             sessionStorage.getItem(sessionStorageKey) || "" );
             return [value, setValue]
@@ -58,10 +58,11 @@ const Register = ()=>{
         contents=(
             <div>
                 <form>
-                <input type="text" onChange={e=>setInputUsername(e.target.value)}/>
-                <input type="email" onChange={e=>setInputEmail(e.target.value)}/>
-                <input type="password" onChange={e=>setInputPassword(e.target.value)}/>
-                <input type="password" onChange={e=>setInputConfirmPassword(e.target.value)}/>
+                <input type="text" onChange={e=>setInputUsername(e.target.value)} placeholder="Username"/>
+                <input type="email" onChange={e=>setInputEmail(e.target.value)} placeholder="email"/>
+                <input type="password" onChange={e=>setInputPassword(e.target.value)} placeholder="password"/>
+                <input type="password" onChange={e=>setInputConfirmPassword(e.target.value)} placeholder="Confirm Password"/>
+                <input type="button" onClick={e=>{getToken(); e.preventDefault();}} value="Register"/>
                 </form>
             </div>
         )
