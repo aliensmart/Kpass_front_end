@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import Password from './OneAccount'
+import Add from './AddAccount'
+import App from '../../../App'
+
 
 const Passwords = ()=>{
 
@@ -8,6 +10,7 @@ const Passwords = ()=>{
 
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([])
+    const [showAdd, setShowAdd] = useState(false)
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -24,30 +27,27 @@ const Passwords = ()=>{
         fetchData();
     }, [])
     
-    const passwords = (
-        <div>
-            {data.map((password, index)=>{
-                return(
-                    <Password
-                    id = {password.id}
-                    user = {password.username}
-                    email = {password.email}
-                    password = {password.password_hash}
-                    website = {password.site_name}
-                    key={index}/>
-
-                )
-            })}
-        </div>
-    )
     
     const th={
         padding:"20px",
         width: '100px'
     }
+    const toggle = ()=>{
+        setShowAdd(!showAdd)
+    }
+    let content = null;
+    if(!showAdd){
+        content=(
+            <div>
+                <Add/>
+            </div>
+        )
+    }
+    
 
     return(
         <div>
+            {content}
             <table>
                 <thead>
                     <th style={th}>Id</th>
@@ -55,6 +55,7 @@ const Passwords = ()=>{
                     <th style={th}>Email</th>
                     <th style={th}>Password</th>
                     <th style={th}>Site Name</th>
+                    <th style={th}>Site url</th>
                 </thead>
                 <tbody>
                 {data.map((password, index)=>{
@@ -65,10 +66,15 @@ const Passwords = ()=>{
                     <td>{password.email}</td>
                     <td>{password.password_hash}</td>
                     <td>{password.site_name}</td>
+                    <td><a href={password.url} target="blank">{password.url}</a></td>
                     </tr>)
             })}
                 </tbody>
             </table>
+
+            <div onClick={e=>toggle()}>
+                <span >+</span>
+            </div>
             {/* {passwords} */}
             
         </div>
