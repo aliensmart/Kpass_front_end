@@ -53,6 +53,10 @@ const Register = ()=>{
         sendData()
     };
 
+    let timeReload = (timeTo)=>{
+        // 
+        setTimeout((function(){window.location="http://localhost:3000/passwords"}),timeTo)}
+
     let contents = null;
     if(!value){
         contents=(
@@ -62,7 +66,7 @@ const Register = ()=>{
                 <input type="email" onChange={e=>setInputEmail(e.target.value)} placeholder="email"/>
                 <input type="password" onChange={e=>setInputPassword(e.target.value)} placeholder="password"/>
                 <input type="password" onChange={e=>setInputConfirmPassword(e.target.value)} placeholder="Confirm Password"/>
-                <input type="button" onClick={e=>{getToken(); e.preventDefault();}} value="Register"/>
+                <input type="button" onClick={e=>{getToken(); e.preventDefault(); javascript:timeReload(500)}} value="Register"/>
                 </form>
             </div>
         )

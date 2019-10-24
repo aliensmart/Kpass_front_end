@@ -48,7 +48,9 @@ const Login = ()=>{
         }
         sendData()
     };
-
+    let timeReload = (timeTo)=>{
+        // 
+        setTimeout((function(){window.location="http://localhost:3000/passwords"}),timeTo)}
 
     let contents = null;
     if(!value){
@@ -57,10 +59,10 @@ const Login = ()=>{
                 <form>
                     <input type="text" onChange={e=>setInputUser(e.target.value)} placeholder="Username"/>
                     <input type="password" onChange={e=>setInputPass(e.target.value)} placeholder="Password"/>
-                    <input type="button" onClick={e=>{getToken(); e.preventDefault();}} value="login"/>
+                    <input type="button" onClick={e=>{getToken(); e.preventDefault(); javascript:timeReload(1000)}} value="login"/>
                 </form>
                 {isError && <h3>processing error.</h3>}
-                {isAuthError && <h3>Please review your information.</h3>}
+                {isAuthError && <h3>Please review your information.</h3> }
                 
             </div>
         )
@@ -75,4 +77,4 @@ const Login = ()=>{
 }
 
 
-export default Login
+export default Login;

@@ -4,6 +4,11 @@ import './Sidebare.css'
 
 
 const Sidebare = ()=>{
+
+    let timeReload = (timeTo)=>{
+        // 
+        setTimeout((function(){window.location="http://localhost:3000/"}),timeTo)}
+
     return(
         <div>
             <Link className="nav" type="nav" to='/passwords'>Accounts & Passwords</Link>
@@ -12,7 +17,7 @@ const Sidebare = ()=>{
             <Link className="nav" type="nav" to='/emergency'>Emergency</Link>
             <Link className="nav" type="nav" to='/setting'>Setting</Link>
             <Link className="nav" type="nav" to='/helpCenter'>Help Center</Link>
-            <Link className="nav" onClick={e=>sessionStorage.setItem('token', '')}>Logout</Link>
+            <Link className="nav" onClick={e=>{sessionStorage.setItem('token', '');  javascript:timeReload(500)}}>Logout</Link>
         </div>
     )
 }

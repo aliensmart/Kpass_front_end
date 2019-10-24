@@ -32,7 +32,10 @@ const Password = (props)=>{
             
         }
         sendData()
-    }
+    };
+
+    const timeReload = (timeTo)=>{
+        setTimeout("location.reload(true);",timeTo)}
 
 
     return(
@@ -43,7 +46,7 @@ const Password = (props)=>{
                 <input type="text" onChange={e=>setInputEmail(e.target.value)} placeholder="email"/>
                 <input type="text" onChange={e=>setInputSiteName(e.target.value)} placeholder="Site Name"/>
                 <input type="text" onChange={e=>setInputSiteUrl(e.target.value)} placeholder="Site Url"/>
-                <input type="submit" onClick={e=>{newAccount(); e.preventDefault()}}/>
+                <input type="submit" onClick={e=>{newAccount(); e.preventDefault(); javascript:timeReload(1000)}}/>
             </form>
         </div>
     )
