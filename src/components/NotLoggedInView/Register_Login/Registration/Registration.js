@@ -58,7 +58,12 @@ const useStyles = makeStyles(theme => ({
             const [inputpassword, setInputPassword] = useState('')
             const [inputConfirmPassword, setInputConfirmPassword] = useState('')
             const [inputEmail, setInputEmail] = useState('')
+            const [theError, setTheError] = useState('')
             
+            let timeReload = (timeTo)=>{
+              // 
+                setTimeout((function(){window.location="http://localhost:3000/passwords"}),timeTo)}
+
             useEffect(()=>{
                 sessionStorage.setItem('token', value);
             }, [value])
@@ -77,11 +82,15 @@ const useStyles = makeStyles(theme => ({
                             email: inputEmail
                         }
                         const res = await axios.post(endPoint, data)
-                        console.log(res.data.api_key)
+                        console.log(res.data.error)
                         if(res.data.api_key){
                             setValue(res.data.api_key)
+                            javascript:timeReload(1000)
+
                         }else{
+                            setTheError(res.data.error)
                             setIsAuthError(true)
+                            
                         }
                     }catch(error){
                         console.log(error);
@@ -92,10 +101,25 @@ const useStyles = makeStyles(theme => ({
                 }
                 sendData()
             };
-        
-            let timeReload = (timeTo)=>{
-                // 
-                setTimeout((function(){window.location="http://localhost:3000/passwords"}),timeTo)}
+            // console.log(theError)
+            let errorContent = null
+            const registrate = (e)=>{
+              
+              if(isAuthError===true){
+                errorContent = (
+                  <h1>
+                    Hello
+                  </h1>
+                )
+              }else{
+                
+
+                e.preventDefault();
+                
+              }
+            }
+
+                
         
             let contents = null;
             if(!value){
@@ -110,6 +134,7 @@ const useStyles = makeStyles(theme => ({
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
+          {theError}
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -178,7 +203,7 @@ const useStyles = makeStyles(theme => ({
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={e=>{getToken(); e.preventDefault(); javascript:timeReload(500)}}
+              onClick={e=>{ getToken(); e.preventDefault();  }}
             >
               Sign Up
             </Button>
@@ -202,6 +227,10 @@ const useStyles = makeStyles(theme => ({
     return (
       <div>
           {contents}
+          {
+            
+          }
+
       </div>
     );
   }

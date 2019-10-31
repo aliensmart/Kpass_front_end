@@ -29,6 +29,9 @@ const Search = ()=>{
         fetchData();
     }, [url])
 
+    let contents = null
+    
+
 
     return(
         <div>

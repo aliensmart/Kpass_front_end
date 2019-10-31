@@ -78,7 +78,7 @@ const Passwords = ()=>{
 
     return(
         <div className="passwords">
-            <Result/>
+            {/* <Result/> */}
             {showAdd && <Add update={setData} oldData={data}/>}
             {/* {content} */}
             <table>

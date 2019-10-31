@@ -1,7 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import Login from './NotLoggedInView/Login/Login';
-import Logged from './LoggedInView/Logged'
+
 
 
 const ToggleViews = ()=>{
