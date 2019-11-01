@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Login from './Login/Login'
 import Register from './Registration/Registration'
+import ShowPass from './show_hide_passw'
 
 
 
@@ -41,6 +42,7 @@ const Log = ()=>{
             <h1 style={h1} onClick={e=>showLogin()}>Login/</h1>
             <h1 style={h1} onClick={e=>showRegister()}>Register</h1>
             {login}
+            {/* <ShowPass/> */}
             
             
         </div>
