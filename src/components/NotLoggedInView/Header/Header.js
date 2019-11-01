@@ -25,7 +25,7 @@ const Header = ()=>{
                     </Box>
 
                     <Box p={3} width={2/8} bg='secondary'>
-                        <Link type="nav" to='/log'>Login/Register</Link>
+                        <Link type="nav" to='/login'>Login/Register</Link>
                     </Box>
                 </Flex>
             </Box>

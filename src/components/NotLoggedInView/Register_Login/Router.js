@@ -7,8 +7,8 @@ import Registration from './Registration/Registration'
 const Router = ()=>{
     return (
         <div>
-            <Route exact path='/log' component={Login}/>
-            <Route  path='/log/registrate' component={Registration}/>
+            <Route exact path='/login' component={Login}/>
+            <Route  path='/login/registrate' component={Registration}/>
         </div>
     )
 }

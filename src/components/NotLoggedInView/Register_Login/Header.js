@@ -11,9 +11,9 @@ const link = {
 const Header = ()=>{
     return(
         <div>
-            <span><Link style={link} type="nav" to='/log'>Login</Link></span>
+            <span><Link style={link} type="nav" to='/login'>Login</Link></span>
             <span>/</span>
-            <span><Link style={link} type="nav" to='/log/registrate'>Registrate</Link></span>
+            <span><Link style={link} type="nav" to='/login/registrate'>Registrate</Link></span>
         </div>
     )
 }

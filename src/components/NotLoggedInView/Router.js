@@ -12,7 +12,7 @@ const Router = ()=>{
         <div>
             <ThemeProvider theme={emotion}>
                 <Route exact path='/' component={Home}/>
-                <Route path='/log' component={Log}/>
+                <Route path='/login' component={Log}/>
                 <Route path='/news' component={News}/>
                 <Route path='/weakpass' component={WeakPass}/>
             </ThemeProvider>
