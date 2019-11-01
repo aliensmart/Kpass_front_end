@@ -67,11 +67,16 @@ function Copyright() {
             const [isAuthenticating, setIsAuthenticating] = useState(false);
             const [inputUser, setInputUser] = useState('');
             const [inputPass, setInputPass] = useState('');
+            const [theError, setTheError] = useState('')
         
             useEffect(()=>{
                 sessionStorage.setItem('token', value);
             }, [value]);
-        
+            
+            let timeReload = (timeTo)=>{
+              // 
+              setTimeout((function(){window.location="http://localhost:3000/passwords"}),timeTo)}
+
             const getToken = () => {
                 const sendData = async () => {
                     setIsAuthenticating(true);
@@ -84,10 +89,12 @@ function Copyright() {
                             password: inputPass
                         }
                         const res = await axios.post(endpoint, data)
-                        console.log(res.data.api)
+                        console.log(res.data)
                         if(res.data.api){
                             setValue(res.data.api)
+                            javascript:timeReload(1000)
                         }else{
+                            setTheError(res.data.error)
                             setIsAuthError(true)
                         } 
                     }catch (error) {
@@ -98,9 +105,6 @@ function Copyright() {
                 }
                 sendData()
             };
-            let timeReload = (timeTo)=>{
-                // 
-                setTimeout((function(){window.location="http://localhost:3000/passwords"}),timeTo)}
         
             let contents = null;
             if(!value){
@@ -114,6 +118,7 @@ function Copyright() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          <span style={{color:"red"}}>{theError}</span>
           <form className={classes.form} noValidate>
             <TextField
               variant="outlined"
@@ -149,7 +154,7 @@ function Copyright() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={e=>{getToken(); e.preventDefault(); javascript:timeReload(1000)}}
+              onClick={e=>{getToken(); e.preventDefault(); }}
             >
               Sign In
             </Button>
