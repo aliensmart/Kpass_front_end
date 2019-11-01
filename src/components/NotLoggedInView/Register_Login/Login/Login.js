@@ -19,6 +19,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Copyright from '../Copyright'
+import red from '@material-ui/core/colors/red';
   
   const useStyles = makeStyles(theme => ({
     '@global': {
@@ -71,7 +72,6 @@ import Copyright from '../Copyright'
               showPassword: false,
             });
 //-------------------------------------End Password hid and show usestate--------------------------------------
-
 
             let timeReload = (timeTo)=>{
               // 
@@ -174,10 +174,10 @@ import Copyright from '../Copyright'
         }}
       />
             
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth

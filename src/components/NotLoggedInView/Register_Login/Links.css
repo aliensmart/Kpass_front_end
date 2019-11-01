@@ -1,0 +1,14 @@
+.link,
+.link:visited{
+    padding:5px;
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .5s;
+    
+}
+.link:hover{
+    background-color: #F50057;
+    color: #ffffff;
+}
