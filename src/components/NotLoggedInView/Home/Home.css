@@ -1,0 +1,16 @@
+.home{
+    width: 100%;
+    background: rgba(164, 164, 164, .5);
+    height: 100vh;
+}
+
+.home p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 50px;
+    font-weight: bold;
+    color: honeydew;
+
+}

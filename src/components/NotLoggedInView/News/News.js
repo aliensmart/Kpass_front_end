@@ -2,8 +2,8 @@ import React from 'react';
 
 const Newsp = ()=>{
     return(
-        <div>
-            <p>This is the News page</p>
+        <div className="home">
+            <p>No content Yet</p>
         </div>
     )
 }

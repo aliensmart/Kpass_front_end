@@ -1,0 +1,31 @@
+.main_log{
+    background: linear-gradient(
+        rgba(72, 0, 72, 1), 
+        rgba(192, 72, 72, 1)
+    );
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.myForm{
+    background: rgba(255,255,255, .7);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    animation: toRight 1s ease-out;
+}
+
+@keyframes toRight{
+    0%{
+        transform: translateX(120%) ;
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+}

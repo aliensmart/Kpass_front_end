@@ -1,0 +1,24 @@
+.main_nav{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777777;
+    box-shadow: 0 10px 6px -6px #777;
+
+}
+
+.main_link,
+.main_link:visited{
+    text-decoration: none;
+    font-size: 1rem;
+    color: #303F9F;
+    padding: inherit;
+}
+.items:hover{
+    
+    background: #303F9F;
+}
+
+.items:hover .main_link{
+    width: inherit;
+   
+    color: lavender;
+}
