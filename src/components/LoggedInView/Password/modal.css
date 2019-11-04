@@ -35,24 +35,37 @@
     cursor: default;
 }
 
+.close-modal{
+  border: none;
+  background: none;
+  position: relative;
+  top: -15px;
+  right: -50px;
+  cursor: pointer;
+}
+
 .modal-dialog > * {
     padding: 1rem;
 }
 
-.modal-header
-.modal-footer{
-    background: var(--lightgray);
-}
 .modal-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.modal-header .modal-close{
-    font-size: 1.5rem;
+
+.modal-content input{
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #3F51B5;
+  margin-bottom: 15px;
+  outline: none;
 }
-.modal p + p{
-    margin-top: 1rem;
+
+.modal-content input[type="submit"]{
+  background: #3F51B5 ;
+  color: white
 }
 
 .modal.is-visible{

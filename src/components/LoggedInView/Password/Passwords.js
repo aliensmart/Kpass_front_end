@@ -86,7 +86,7 @@ const Passwords = ()=>{
                     <td>{password.password_hash}</td>
                     <td>{password.site_name}</td>
                     <td><a href={password.url} target="blank">{password.url}</a></td>
-                    <td><button onClick={e=>{DelPk(password.pk);timeReload(500)}}>delete</button></td>
+                    <td><button className="delbtn" onClick={e=>{DelPk(password.pk);timeReload(500)}}>delete</button></td>
                     </tr>)
             })}
                 </tbody>

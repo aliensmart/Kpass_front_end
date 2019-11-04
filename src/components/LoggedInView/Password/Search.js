@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Result from './PasswordResult'
+import './modal.css'
 
 const Search = ()=>{
     const token = sessionStorage.getItem('token');
@@ -30,12 +31,12 @@ const Search = ()=>{
     }, [url])
 
     let contents = null
-    
+    const isVisible = "is-visible"
 
 
     return(
         <div>
-            <form onSubmit={e=>{setUrl(`http://localhost:5000/api/${token}/${query}`); e.preventDefault()}}>
+            <form onSubmit={e=>{setUrl(`http://localhost:5000/api/${token}/${query}`); e.preventDefault(); document.getElementById("modal").classList.add(isVisible)}}>
                 <input type="text" value={query} onChange={e=>setQuery(e.target.value)}/>
                 <input type='submit' value="Search"/>
             </form>
