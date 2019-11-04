@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     gridGap: theme.spacing(0),
   },
   paper: {
-    padding: theme.spacing(1),
+
     textAlign: 'center',
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
@@ -34,7 +34,7 @@ const Logged = () => {
     }
 
     const color = {
-        backgroundColor:'#b91d73',
+        backgroundColor:"rgba(72, 0, 72, .9)",
         color:'#fff',
         minHeight:'100vh',
         borderRadius: '0px'

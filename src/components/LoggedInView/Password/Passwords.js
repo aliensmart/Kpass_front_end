@@ -3,6 +3,7 @@ import axios from 'axios'
 import Add from './AddAccount'
 import Result from './PasswordResult'
 import './passwords.css'
+import './modal.css'
 
 
 const Passwords = ()=>{
@@ -53,43 +54,26 @@ const Passwords = ()=>{
         }
         sendData()
     }
-    // const delete2 = (pk)=>{
-    //     // setPasswordPk(e.target.value)
-    //     const url = `http://localhost:5000/api/${token}/delete`
-    //     const promise = fetch(url, {
-    //         method: 'POST',
-    //         mode:'cors',
-    //         headers:{'content-type': 'application/json'},
-    //         body: JSON.stringify({
-    //             pk: passwordPk
-    //         })
-    //     })
-    //     promise.then(response => response.json()).then(json => {
-    //         if (json.error !== undefined){
-    //             console.log(json.error)
-    //         }else{
-    //             fetchData()
-    //         }
-    //     })
-    // }
 
     const timeReload = (timeTo)=>{
         setTimeout("location.reload(true);",timeTo)}
+    const isVisible = "is-visible"
 
     return(
         <div className="passwords">
             {/* <Result/> */}
-            {showAdd && <Add update={setData} oldData={data}/>}
+            <h1>Your Passwords</h1>
+             <Add  update={setData} oldData={data}/>
             {/* {content} */}
-            <table>
+            <table className="table">
                 <thead>
-                    <th style={th}>Id</th>
-                    <th style={th}>Username</th>
-                    <th style={th}>Email</th>
-                    <th style={th}>Password</th>
-                    <th style={th}>Site Name</th>
-                    <th style={th}>Site url</th>
-                    <th style={th}>Delete</th>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Site Name</th>
+                    <th>Site url</th>
+                    <th>Delete</th>
                 </thead>
                 <tbody>
                 {data.map((password, index)=>{
@@ -109,7 +93,7 @@ const Passwords = ()=>{
             </table>
 
             <div  style={{marginTop:"30px"}}>
-                <span className="addBtn" onClick={e=>toggle()}>+</span>
+                <span className="addBtn"  onClick={e=>{document.getElementById("modal").classList.add(isVisible)}}>+</span>
             </div>
             {/* {passwords} */}
             
