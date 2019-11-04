@@ -28,7 +28,7 @@ const Result = (props)=>{
             }
           });
     return(
-        <div id="modal">
+        <div className="modal" id="modal1" data-animation="mixInAnimations">
             <div className="modal-dialog">
                 <header>
                     Your Result

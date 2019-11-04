@@ -36,7 +36,7 @@ const Search = ()=>{
 
     return(
         <div>
-            <form onSubmit={e=>{setUrl(`http://localhost:5000/api/${token}/${query}`); e.preventDefault(); document.getElementById("modal").classList.add(isVisible)}}>
+            <form onSubmit={e=>{setUrl(`http://localhost:5000/api/${token}/${query}`); e.preventDefault(); document.getElementById("modal1").classList.add(isVisible)}}>
                 <input type="text" value={query} onChange={e=>setQuery(e.target.value)}/>
                 <input type='submit' value="Search"/>
             </form>
