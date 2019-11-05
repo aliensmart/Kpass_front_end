@@ -1,6 +1,7 @@
 :root{
-    --lightgray: #d3d3d3;
-    --blue: steelblue;
+    --primaryColor: #5D195B;
+    --secondaryColor:#B74247;
+    --blue: #3F51B5;
     --white: #fff;
     --black:rgba(0,0,0,0.8);
     --bounceEasing : cubic-bezier(.51, .92, .24, 1.15)
@@ -38,9 +39,9 @@
 .close-modal{
   border: none;
   background: none;
-  position: relative;
-  top: -15px;
-  right: -50px;
+  position: absolute;
+  top: 0px;
+  right: 5px;
   cursor: pointer;
 }
 
@@ -102,7 +103,7 @@
   }
   
 
-  [data-animation="slideInOutRight"].is-visible .modal-dialog,
+  [data-animation="mixInAnimations"].is-visible .modal-dialog,
   [data-animation="zoomInOut"].is-visible .modal-dialog,
   [data-animation="rotateInOutDown"].is-visible .modal-dialog {
     transform: none;

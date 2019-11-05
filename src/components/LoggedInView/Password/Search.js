@@ -2,11 +2,15 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Result from './PasswordResult'
 import './modal.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './search.css'
+
 
 const Search = ()=>{
     const token = sessionStorage.getItem('token');
     const [isLoading, setIsLoading] = useState(true)
     const [query, setQuery] = useState('')
+    const [theErro, setTheError] = useState('')
 
     const [url, setUrl] = useState(`http://localhost:5000/api/${token}/${query}`)
     const [data, setData] = useState({});
@@ -19,7 +23,14 @@ const Search = ()=>{
         try{
             const res = await axios(url)
             console.log(res.data.your_pass);
-            setData(res.data.your_pass);
+            if(res.data.your_pass){
+                setData(res.data.your_pass);
+                document.getElementById("modal1").classList.add(isVisible)
+            }else{
+                setTheError(res.data.error)
+                console.log(res.data.error)
+            }
+            
         }catch (error){
             console.log(error)
         }
@@ -32,13 +43,28 @@ const Search = ()=>{
 
     let contents = null
     const isVisible = "is-visible"
+    const isQueryEmpty = (e)=>{
+        if(query==""){
+            contents = (
+                <span className="error"> Please Input field must not be empty</span>
+            )
+        }else{
+            setUrl(`http://localhost:5000/api/${token}/${query}`);
+            e.preventDefault(); 
+            
+        }
+    }
 
 
     return(
         <div>
-            <form onSubmit={e=>{setUrl(`http://localhost:5000/api/${token}/${query}`); e.preventDefault(); document.getElementById("modal1").classList.add(isVisible)}}>
-                <input type="text" value={query} onChange={e=>setQuery(e.target.value)}/>
-                <input type='submit' value="Search"/>
+            <span>{theErro}</span>
+            <form className="search_form" onSubmit={e=>{isQueryEmpty(e)}}>
+                <input className="search_form_inp" type="text" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Site Name"/>
+                {/* <i class="fas fa-search"></i> */}
+                <input className="search_form_btn" type='submit' value="Search"/>
+                
+                
             </form>
                 <Result
                     username={data.username}

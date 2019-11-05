@@ -29,7 +29,7 @@ const Header = ()=>{
         <div className="Header">
             <div className="logo">Logo</div>
             <div className="profile">
-              Your api key is: {token}
+              {/* Your api key is: {token} */}
               <Search/>
             </div>
             
