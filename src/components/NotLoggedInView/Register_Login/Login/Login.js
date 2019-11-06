@@ -195,7 +195,7 @@ import red from '@material-ui/core/colors/red';
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/login/registrate" variant="body2">
+                <Link href="/registrate" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
