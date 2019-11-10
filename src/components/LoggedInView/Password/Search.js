@@ -7,17 +7,21 @@ import './search.css'
 
 
 const Search = ()=>{
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--Global variable--------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     const token = sessionStorage.getItem('token');
     const [isLoading, setIsLoading] = useState(true)
     const [query, setQuery] = useState('')
     const [theErro, setTheError] = useState('')
-
     const [url, setUrl] = useState(`http://localhost:5000/api/${token}/${query}`)
     const [data, setData] = useState({});
     
-   
-  
-    
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--send request--------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     const fetchData = async ()=>{
         setIsLoading(true);
         try{
@@ -25,10 +29,9 @@ const Search = ()=>{
             console.log(res.data.your_pass);
             if(res.data.your_pass){
                 setData(res.data.your_pass);
-                document.getElementById("modal1").classList.add(isVisible)
+                document.getElementById("modal1").classList.add(isVisible)//add is-visible to the modal
             }else{
                 setTheError(res.data.error)
-                console.log(res.data.error)
             }
             
         }catch (error){
@@ -41,8 +44,14 @@ const Search = ()=>{
         fetchData();
     }, [url])
 
-    let contents = null
-    const isVisible = "is-visible"
+
+    let contents = null //contents variable
+    const isVisible = "is-visible"//is-visible variable
+
+    
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--Check if search input is not empty--------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     const isQueryEmpty = (e)=>{
         if(query==""){
             contents = (
@@ -56,16 +65,17 @@ const Search = ()=>{
     }
 
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--User View--------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     return(
         <div>
             <span>{theErro}</span>
             <form className="search_form" onSubmit={e=>{isQueryEmpty(e)}}>
                 <input className="search_form_inp" type="text" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Site Name"/>
-                {/* <i class="fas fa-search"></i> */}
                 <input className="search_form_btn" type='submit' value="Search"/>
-                
-                
             </form>
+            
                 <Result
                     username={data.username}
                     email={data.email}
