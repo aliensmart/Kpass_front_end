@@ -137,10 +137,15 @@ import Copyright from '../Copyright'
                 contents=(
                     <Container component="main" maxWidth="xs">
                         <CssBaseline />
+
+
+{/* --------------------------------------Lock Avatar-------------------------------------------------------------------------------- */}
                         <div className={classes.paper}>
                           <Avatar className={classes.avatar}>
                             <LockOutlinedIcon />
                           </Avatar>
+
+{/* --------------------------------------Txt--------------------------------------------------------------------------------- */}
                           <Typography component="h1" variant="h5">
                             Sign in
                           </Typography>
@@ -148,6 +153,7 @@ import Copyright from '../Copyright'
 
                           <form className={classes.form} noValidate>
 
+{/* --------------------------------------username--------------------------------------------------------------------------------- */}
                             <TextField
                               variant="outlined"
                               margin="normal"
@@ -161,6 +167,7 @@ import Copyright from '../Copyright'
                               autoFocus
                             />
 
+{/* --------------------------------------Password--------------------------------------------------------------------------------- */}
                             <TextField
                               variant="outlined"
                               margin="normal"
@@ -189,6 +196,8 @@ import Copyright from '../Copyright'
                           ),
                         }}
                       />
+
+{/* --------------------------------------Singin button--------------------------------------------------------------------------------- */}
                           <Button
                             type="submit"
                             fullWidth
@@ -210,7 +219,7 @@ import Copyright from '../Copyright'
 
                             <Grid item>
 
-                              <Link href="/registrate" variant="body2">
+                              <Link href="/login/registrate" variant="body2">
                                 {"Don't have an account? Sign Up"}
                               </Link>
 
@@ -230,7 +239,7 @@ import Copyright from '../Copyright'
       </Container>
                 )
             }
-  
+{/* --------------------------------------USer view--------------------------------------------------------------------------------- */}
     return (
       <div>
           {contents}

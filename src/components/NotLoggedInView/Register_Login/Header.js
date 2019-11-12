@@ -2,10 +2,6 @@ import React from 'react';
 import{Link} from 'react-router-dom'
 import './Links.css'
 
-const link = {
-    
-}
-
 const Header = ()=>{
     return(
         <div>

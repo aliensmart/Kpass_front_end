@@ -1,6 +1,4 @@
 
-
-
 .Header{
     width: 100%;
     height: 100px;
@@ -11,9 +9,7 @@
     );
 
 }
-i{
-    width: 20px;
-}
+
 .profile{
     flex-basis: 80%;
 }

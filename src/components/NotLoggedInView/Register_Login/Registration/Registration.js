@@ -144,114 +144,138 @@ const useStyles = makeStyles(theme => ({
             if(!value){
                 contents=(
 
+//-------------------------------main container for registrationn form--------------------------------------------------------------------------
                     <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <span style={{color:"red"}}>{theError}</span>
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="Username"
-                  autoFocus
-                  onChange={e=>setInputUsername(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  onChange={e=>setInputEmail(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-              <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              id="password"
-              // className={clsx(classes.margin, classes.textField)}
-              type={values.showPassword ? 'text' : 'password'}
-              label="Password"
-              autoComplete="current-password"
-              onChange={event=>{handleChange('password'); setInputPassword(event.target.value)}}
-              InputProps={{
-              endAdornment: (
-                            <InputAdornment position="end">
-                              <IconButton
-                                edge="end"
-                                aria-label="toggle password visibility"
-                                onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
+                          <CssBaseline />
+                          <div className={classes.paper}>
+
+{/* -------------------------------registration lock icon---------------------------------------------------------------------------------------------- */}
+                            <Avatar className={classes.avatar}>
+                              <LockOutlinedIcon />
+                            </Avatar>
+
+{/* -----------------------------text------------------------------------------------------------------------ */}
+                            <Typography component="h1" variant="h5">
+                              Sign up
+                            </Typography>
+
+{/* ----------------------------------Error span-------------------------------------------------------------------------- */}
+                            <span style={{color:"red"}}>{theError}</span>
+                            
+{/* ----------------------------------------form container---------------------------------------------------------------------- */}
+                            <form className={classes.form} noValidate>
+                              <Grid container spacing={2}>
+                                <Grid item xs={12}>
+{/* --------------------------------------username--------------------------------------------------------------------------------- */}
+                                  <TextField
+                                    autoComplete="fname"
+                                    name="firstName"
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    id="firstName"
+                                    label="Username"
+                                    autoFocus
+                                    onChange={e=>setInputUsername(e.target.value)}
+                                  />
+                                </Grid>
+
+{/* --------------------------------------email address--------------------------------------------------------------------------------- */}
+                                <Grid item xs={12}>
+                                  <TextField
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                    onChange={e=>setInputEmail(e.target.value)}
+                                  />
+                                </Grid>
+
+{/* --------------------------------------Password--------------------------------------------------------------------------------- */}
+                                <Grid item xs={12}>
+                                <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                id="password"
+                                // className={clsx(classes.margin, classes.textField)}
+                                type={values.showPassword ? 'text' : 'password'}
+                                label="Password"
+                                autoComplete="current-password"
+                                onChange={event=>{handleChange('password'); setInputPassword(event.target.value)}}
+                                InputProps={{
+                                endAdornment: (
+                                              <InputAdornment position="end">
+                                                <IconButton
+                                                  edge="end"
+                                                  aria-label="toggle password visibility"
+                                                  onClick={handleClickShowPassword}
+                                                  onMouseDown={handleMouseDownPassword}
+                                                >
+                                                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                              </InputAdornment>
+                                    ),
+                                  }}
+                                />
+                                  
+                                </Grid>
+
+{/* --------------------------------------Pasword confirmation--------------------------------------------------------------------------------- */}
+                                <Grid item xs={12}>
+                                  <TextField
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Confirm Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="current-password"
+                                    onChange={e=>setInputConfirmPassword(e.target.value)}
+                                  />
+                                  
+                                </Grid>
+
+{/* --------------------------------------Check box--------------------------------------------------------------------------------- */}
+                                <Grid item xs={12}>
+                                  <FormControlLabel
+                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
+                                    label="I want to receive inspiration, marketing promotions and updates via email."
+                                  />
+                                </Grid>
+                              </Grid>
+
+{/* --------------------------------------Sign up button--------------------------------------------------------------------------------- */}
+                              <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                                onClick={e=>{ getToken(); e.preventDefault();  }}
                               >
-                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                              </IconButton>
-                            </InputAdornment>
-                  ),
-                }}
-              />
-                
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Confirm Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  onChange={e=>setInputConfirmPassword(e.target.value)}
-                />
-                
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={e=>{ getToken(); e.preventDefault();  }}
-            >
-              Sign Up
-            </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="/" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
-          </form>
-        </div>
-        <Box mt={5}>
+                                Sign Up
+                              </Button>
+
+
+                              <Grid container justify="flex-end">
+                                <Grid item>
+
+                                  <Link href="/login" variant="body2">
+                                    Already have an account? Sign in
+                                  </Link>
+
+                                </Grid>
+                              </Grid>
+                            </form>
+                          </div>
+                          <Box mt={5}>
           <Copyright />
         </Box>
       </Container>
@@ -266,9 +290,6 @@ const useStyles = makeStyles(theme => ({
     return (
       <div>
           {contents}
-          {
-            
-          }
 
       </div>
     );

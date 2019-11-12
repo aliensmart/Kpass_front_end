@@ -104,8 +104,7 @@
   
 
   [data-animation="mixInAnimations"].is-visible .modal-dialog,
-  [data-animation="zoomInOut"].is-visible .modal-dialog,
-  [data-animation="rotateInOutDown"].is-visible .modal-dialog {
+  [data-animation="zoomInOut"].is-visible .modal-dialog{
     transform: none;
   }
   

@@ -91,7 +91,7 @@ const Password = (props)=>{
                     <input type="text" onChange={e=>setInputEmail(e.target.value)} placeholder="email"/><br/>
                     <input type="text" onChange={e=>setInputSiteName(e.target.value)} placeholder="Site Name"/><br/>
                     <input type="text" onChange={e=>setInputSiteUrl(e.target.value)} placeholder="Site Url"/><br/>
-                    <input type="submit" onClick={e=>{newAccount(); e.preventDefault()}}/>
+                    <input type="submit" className="subtn" onClick={e=>{newAccount(); e.preventDefault()}}/>
                 </form>
             </div>
         </div>

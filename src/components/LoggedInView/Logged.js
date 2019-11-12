@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //--material ui function--------------------------------------------------------------------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'grid',
@@ -31,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 
 
 const Logged = () => {
-    const token = sessionStorage.getItem('token');
     const classes = useStyles();
     const fullWidth = {
         minHeight:'100vh'
@@ -44,19 +42,19 @@ const Logged = () => {
         borderRadius: '0px'
     }
 
+
+{/* --------------------------------------User view--------------------------------------------------------------------------------- */}
     return (
         <div>
             <Header/>
-            
-        <Grid container spacing={0}>
-        
-        <Grid style={fullWidth} item xs={2}>
-          <Paper style={color} className={classes.paper}><Sidebar/></Paper>
-        </Grid>
-        <Grid style={fullWidth} item xs={10}>
-          <Paper style={fullWidth} className={classes.paper}><Router/></Paper>
-        </Grid>
-      </Grid>
+            <Grid container spacing={0}>
+            <Grid style={fullWidth} item xs={2}>
+              <Paper style={color} className={classes.paper}><Sidebar/></Paper>
+            </Grid>
+            <Grid style={fullWidth} item xs={10}>
+              <Paper style={fullWidth} className={classes.paper}><Router/></Paper>
+            </Grid>
+          </Grid>
             
 
             
